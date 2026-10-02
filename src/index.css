@@ -10,105 +10,49 @@
   }
 
   body {
-    background-color: #ffffff;
-    color: #111827;
+    background-color: #09090B; /* Dark background */
+    color: #F9FAFB; /* Light text for dark theme */
     font-family: 'Sora', sans-serif;
     overflow-x: hidden;
   }
 
-  /* Text selection highlight - Neon Blue */
+  /* Text selection highlight - Red */
   ::selection {
-    background-color: rgba(37, 99, 235, 0.2);
-    color: #111827;
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #F9FAFB;
   }
 
-  /* Custom Scrollbar - Neon Blue Theme */
+  /* Custom Scrollbar - Red Theme */
   ::-webkit-scrollbar {
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #f3f4f6;
+    background: #13161B;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2563eb;
+    background: #EF4444;
     border-radius: 999px;
-    border: 2px solid #f3f4f6;
+    border: 2px solid #13161B;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #1d4ed8;
+    background: #DC2626;
   }
 }
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.70);
+    background: rgba(15, 17, 21, 0.70);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .glass-strong {
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  }
-  
-  .neon-text {
-    /* Blue gradient */
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  .brand-text {
+    /* Red gradient text */
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-  }
-
-  .neon-border {
-    /* Blue glow */
-    border: 1px solid rgba(37, 99, 235, 0.4);
-    box-shadow:
-      0 0 15px rgba(37, 99, 235, 0.15),
-      inset 0 0 15px rgba(37, 99, 235, 0.05);
-  }
-
-  .section-pad {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Micro fade (3%) so side thumbnails stay clearly visible */
-  .mask-fade-x {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      #fff 3%,
-      #fff 97%,
-      transparent
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      #fff 3%,
-      #fff 97%,
-      transparent
-    );
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

@@ -1,69 +1,77 @@
-import { Zap, Image as ImageIcon, Clock } from 'lucide-react';
+import { Zap, Target, ShieldCheck, Sparkles } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
-import { SectionHeading } from './ui/SectionHeading';
 
-const features = [
+const reasons = [
+  {
+    icon: Target,
+    title: 'Exclusive Thumbnail Focus',
+    description: 'Main websites, logos ya branding ka kaam nahi karta. Mera poora focus sirf aur sirf high-converting YouTube thumbnails par hota hai.',
+  },
   {
     icon: Zap,
-    title: 'High-CTR YouTube Thumbnails',
-    desc: 'Professional thumbnails designed to grab attention and improve click-through rate.',
+    title: 'Viewer Psychology & High CTR',
+    description: 'Designs sirf sundar nahi hote, balki audience ki psychology ko samajhkar banaye jaate hain taaki maximum clicks aur views mil sakein.',
   },
   {
-    icon: ImageIcon,
-    title: 'Custom Thumbnail Design',
-    desc: 'Every thumbnail is created from scratch to match your content and audience.',
-  },
-  {
-    icon: Clock,
-    title: 'Fast Turnaround',
-    desc: 'Quick delivery with consistent premium quality.',
+    icon: ShieldCheck,
+    title: 'Proven Track Record',
+    description: '3+ saal ke experience aur 2M+ views generate karne ke baad, mujhe pata hai ki YouTube par kya design kaam karta hai aur kya nahi.',
   },
 ];
 
-export function Services() {
+export function Services(): JSX.Element {
   return (
-    <section id="services" className="section-pad relative px-6">
+    <section id="services" className="section-pad relative px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="Services"
-          title="What I Offer"
-        />
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand/10 border border-brand/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-brand">
+            <Sparkles className="h-3.5 w-3.5" />
+            Why Choose Me
+          </span>
+          
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Why Me?
+          </h2>
+          <p className="mt-4 text-gray-400 max-w-xl text-base sm:text-lg">
+            Creator ki success hi mera goal hai. Dekhiye kyon creators apne channel ke liye mujhe choose karte hain.
+          </p>
+        </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, i) => {
-            const Icon = f.icon;
+        {/* Why Me Cards Grid */}
+        <div className="grid gap-8 md:grid-cols-3">
+          {reasons.map((item, i) => {
+            const Icon = item.icon;
             return (
-              <Reveal key={f.title} delay={(i % 3) * 0.1}>
-                
-                {/* 
-                  INLINE CSS GRADIENT (Bypass Tailwind):
-                  Yeh browser ko directly force karega gradient dikhane ke liye 
-                */}
-                <div 
-                  className="group relative h-full overflow-hidden rounded-2xl border-2 border-[#93c5fd] p-7 transition-all duration-500 shadow-sm hover:border-[#2563EB] hover:shadow-lg hover:-translate-y-1.5"
-                  style={{
-                    background: 'linear-gradient(to bottom, #bfdbfe 0%, #ffffff 100%)'
-                  }}
-                >
+              <Reveal key={item.title} delay={i * 0.12}>
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-ink-300 bg-ink-100/80 backdrop-blur-md p-8 transition-all duration-500 hover:border-brand/60 hover:shadow-[0_10px_30px_rgba(239,68,68,0.15)] hover:-translate-y-1">
                   
-                  {/* Icon Box */}
-                  <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[#2563EB] shadow-md transition-transform duration-500 group-hover:scale-110">
-                    <Icon className="h-7 w-7 text-white" />
-                  </span>
+                  {/* Top Icon Badge */}
+                  <div className="flex items-start justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white shadow-md transition-transform duration-500 group-hover:scale-110">
+                      <Icon className="h-6 w-6" />
+                    </span>
+                  </div>
 
-                  <h3 className="relative mt-6 font-display text-xl font-semibold text-gray-900">
-                    {f.title}
-                  </h3>
-                  <p className="relative mt-3 text-sm leading-relaxed text-gray-600">
-                    {f.desc}
-                  </p>
+                  {/* Content */}
+                  <div className="mt-6">
+                    <h3 className="font-display text-xl font-bold text-white group-hover:text-brand transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                      {item.description}
+                    </p>
+                  </div>
 
-                  <div className="relative mt-6 h-px w-full origin-left scale-x-0 bg-[#2563EB] transition-transform duration-500 group-hover:scale-x-100" />
+                  {/* Bottom subtle glow line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
               </Reveal>
             );
           })}
         </div>
+
       </div>
     </section>
   );
