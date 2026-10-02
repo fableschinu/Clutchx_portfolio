@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Star, Sparkles } from 'lucide-react';
-import { SectionHeading } from './ui/SectionHeading';
 
 type Testimonial = {
   id: string;
@@ -128,10 +127,10 @@ function MarqueeColumn({
             key={`${t.id}-${idx}`}
             className="group relative rounded-2xl border border-ink-300 bg-ink-100/90 backdrop-blur-xl p-6 shadow-xl transition-all duration-300 hover:border-brand/60 hover:shadow-[0_10px_30px_rgba(239,68,68,0.15)]"
           >
-            {/* 5 Yellow Stars */}
+            {/* Red Theme Stars */}
             <div className="flex items-center gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="h-4 w-4 fill-brand text-brand" />
               ))}
             </div>
 

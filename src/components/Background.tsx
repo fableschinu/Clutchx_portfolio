@@ -2,31 +2,31 @@ export function Background(): JSX.Element {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-black">
       
-      {/* 1. Bright Cinematic Top-Right Light Flare (Rich Red Glow) */}
+      {/* 1. Bright Cinematic Top-Right Light Flare */}
       <div
-        className="absolute -top-20 right-0 h-[650px] w-[650px] rounded-full opacity-45 blur-[120px]"
+        className="absolute -top-20 right-0 h-[650px] w-[650px] rounded-full opacity-35 blur-[120px]"
         style={{
-          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.55) 0%, rgba(220, 38, 38, 0.2) 50%, transparent 80%)',
+          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, rgba(220, 38, 38, 0.15) 50%, transparent 80%)',
         }}
         aria-hidden
       />
 
-      {/* 2. Center-Left Ambient Glow for Depth */}
+      {/* 2. Center-Left Ambient Glow */}
       <div
-        className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full opacity-30 blur-[110px]"
+        className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full opacity-25 blur-[110px]"
         style={{
-          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.35) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%)',
         }}
         aria-hidden
       />
 
-      {/* 3. Clean and Sharp Visible Grid Lines */}
+      {/* 3. Subtle Clean Grid Lines (Opacity reduced to 0.07 for soft look) */}
       <div
-        className="absolute inset-0 opacity-[0.22]"
+        className="absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(248, 113, 113, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(248, 113, 113, 0.5) 1px, transparent 1px)',
-          backgroundSize: '56px 56px',
+            'linear-gradient(rgba(248, 113, 113, 0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(248, 113, 113, 0.6) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
           maskImage:
             'radial-gradient(circle at 50% 30%, #000 0%, transparent 90%)',
           WebkitMaskImage:
@@ -35,12 +35,12 @@ export function Background(): JSX.Element {
         aria-hidden
       />
 
-      {/* 4. Cinematic Vignette to blend edges smoothly into pure black */}
+      {/* 4. Cinematic Vignette */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(120% 120% at 50% 20%, transparent 30%, rgba(0, 0, 0, 0.95) 100%)',
+            'radial-gradient(120% 120% at 50% 20%, transparent 30%, rgba(0, 0, 0, 0.96) 100%)',
         }}
         aria-hidden
       />
