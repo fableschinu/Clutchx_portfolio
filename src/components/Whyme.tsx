@@ -5,17 +5,17 @@ const reasons = [
   {
     icon: Target,
     title: 'Exclusive Thumbnail Focus',
-    description: 'Main websites, logos ya branding ka kaam nahi karta. Mera poora focus sirf aur sirf high-converting YouTube thumbnails par hota hai.',
+    description: 'I focus on composition, colors, typography, and storytelling.',
   },
   {
     icon: Zap,
     title: 'Viewer Psychology & High CTR',
-    description: 'Designs sirf sundar nahi hote, balki audience ki psychology ko samajhkar banaye jaate hain taaki maximum clicks aur views mil sakein.',
+    description: ' I keep refining the design until I’m genuinely satisfied with the final result for high CTR.',
   },
   {
     icon: ShieldCheck,
     title: 'Proven Track Record',
-    description: '3+ saal ke experience aur 2M+ views generate karne ke baad, mujhe pata hai ki YouTube par kya design kaam karta hai aur kya nahi.',
+    description: 'I’ve been designing thumbnails for 3 years and understand what works on YouTube.',
   },
 ];
 
@@ -35,7 +35,7 @@ export function Services(): JSX.Element {
             Why Me?
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl text-base sm:text-lg">
-            Creator ki success hi mera goal hai. Dekhiye kyon creators apne channel ke liye mujhe choose karte hain.
+            A creator's success is my goal. See why creators choose me for their channels.
           </p>
         </div>
 

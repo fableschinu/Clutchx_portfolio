@@ -54,7 +54,7 @@ export function Showcase() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-display text-5xl font-extrabold tracking-tight text-white sm:text-6xl"
         >
-          Thumb Folio
+          Thumbnail portfolio
         </motion.h2>
       </div>
 

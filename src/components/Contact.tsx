@@ -1,77 +1,83 @@
-import { useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Check, Mail } from 'lucide-react';
-import { SiInstagram, SiDiscord } from '@icons-pack/react-simple-icons';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Mail } from 'lucide-react';
+import { SiInstagram, SiDiscord, SiYoutube } from '@icons-pack/react-simple-icons';
 import { Reveal } from './ui/Reveal';
 
-const DISCORD_USERNAME = 'incendius-64';
+const DISCORD_INVITE = 'https://discord.gg/8PhKntrGrY';
 
 type ContactCard = {
   label: string;
   value: string;
   href?: string;
   external?: boolean;
-  copy?: boolean;
   icon: any;
+  bgClass: string;
   brandColor: string;
+  wide?: boolean;
 };
 
 const cards: ContactCard[] = [
   {
-    icon: Mail,
-    label: 'Email',
-    value: 'incendius4u@gmail.com',
-    href: 'mailto:incendius4u@gmail.com',
-    external: true,
-    brandColor: '#DC2626',
-  },
-  {
     icon: SiInstagram,
     label: 'Instagram',
-    value: '@incen_gfx',
-    href: 'https://www.instagram.com/incen_gfx/?hl=en',
+    value: '@_clutch__editz_',
+    href: 'https://www.instagram.com/_clutch__editz_?igsh=aDF2ZHcyaHByeG9z',
     external: true,
+    bgClass: 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]',
     brandColor: '#E1306C',
+    wide: true, // 1st Row: Big size
+  },
+  {
+    icon: SiYoutube,
+    label: 'YouTube',
+    value: '@ankushdesigns26',
+    href: 'https://www.youtube.com/@ankushdesigns26',
+    external: true,
+    bgClass: 'bg-red-600',
+    brandColor: '#FF0000',
+    wide: true, // 1st Row: Big size
   },
   {
     icon: SiDiscord,
     label: 'Discord',
-    value: DISCORD_USERNAME,
-    copy: true,
+    value: 'Join Server',
+    href: DISCORD_INVITE,
+    external: true,
+    bgClass: 'bg-[#5865F2]',
     brandColor: '#5865F2',
+    wide: false, // 2nd Row
   },
   {
-    // Upwork Card
-    icon: () => (
-      <svg className="h-7 w-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18.56 13.56c-1.34 0-2.55-.53-3.46-1.41l-.97 4.88H11.5l1.41-7.1c-.81-.68-1.77-1.12-2.82-1.32l.84-4.22h2.24v1.89h1.77c2.19 0 3.96 1.77 3.96 3.96 0 .82-.26 1.58-.72 2.2zM9.54 6.78c1.32 0 2.47.53 3.32 1.39l-1.05 5.27c-.71.37-1.51.58-2.36.58-2.45 0-4.44-1.99-4.44-4.44s1.99-4.44 4.44-4.44h.09z" />
-      </svg>
-    ),
-    label: 'Upwork',
-    value: 'Hire on Upwork',
-    href: 'https://www.upwork.com', // Apna upwork profile link yahan daal sakte hain
+    icon: Mail,
+    label: 'Email',
+    value: 'ankush.designs26@gmail.com',
+    href: 'mailto:ankush.designs26@gmail.com',
     external: true,
-    brandColor: '#14a800', // Upwork Green color
+    bgClass: 'bg-brand',
+    brandColor: '#DC2626',
+    wide: false, // 2nd Row
+  },
+  {
+    // Fiverr "fi" Logo with bright green background
+    icon: () => (
+      <span className="font-display font-black text-black text-xl tracking-tighter">fi</span>
+    ),
+    label: 'Fiverr',
+    value: 'Order on Fiverr',
+    href: 'https://www.fiverr.com/ankush_trivedi1/design-premium-professional-viral-youtube-thumbnails',
+    external: true,
+    bgClass: 'bg-[#1DBF73]',
+    brandColor: '#1DBF73',
+    wide: false, // 2nd Row
   },
 ];
 
 export function Contact() {
   const reduce = useReducedMotion();
-  const [copied, setCopied] = useState(false);
-
-  const copyDiscord = async () => {
-    try {
-      await navigator.clipboard.writeText(DISCORD_USERNAME);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  };
 
   return (
     <section id="contact" className="section-pad relative px-6 py-24">
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-5xl text-center">
         
         {/* Eyebrow */}
         <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-brand/10 border border-brand/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-brand">
@@ -86,22 +92,26 @@ export function Contact() {
           Looking for thumbnails that actually get clicks? Let&apos;s create something that stands out.
         </p>
 
-        {/* 2x2 Grid Layout */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 text-left">
+        {/* Grid Layout: Top 2 big cards, Bottom 3 cards */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-6 text-left">
           {cards.map((c, i) => {
             const Icon = c.icon;
+            // First 2 cards take 3 columns each on lg (making 2 big cards in row 1)
+            // Next 3 cards take 2 columns each on lg (making 3 balanced cards in row 2)
+            const colSpanClass = c.wide ? 'lg:col-span-3' : 'lg:col-span-2';
+
             const inner = (
               <div className="group relative h-full overflow-hidden rounded-2xl border border-ink-300 bg-ink-100/90 p-8 transition-all duration-500 hover:border-brand/60 hover:shadow-[0_10px_30px_rgba(220,38,38,0.15)] hover:-translate-y-1.5">
                 
-                {/* Icon Container */}
-                <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand text-white shadow-md transition-transform duration-500 group-hover:scale-110">
+                {/* Bright Colored Icon Container */}
+                <span className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${c.bgClass} text-white shadow-lg transition-transform duration-500 group-hover:scale-110`}>
                   <Icon className="h-7 w-7" />
                 </span>
 
                 <p className="relative mt-6 text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
                   {c.label}
                 </p>
-                <p className="relative mt-2 break-all font-display text-xl font-semibold text-white group-hover:text-brand transition-colors">
+                <p className="relative mt-2 break-all font-display text-lg sm:text-xl font-semibold text-white group-hover:text-brand transition-colors">
                   {c.value}
                 </p>
 
@@ -114,48 +124,21 @@ export function Contact() {
             );
 
             return (
-              <Reveal key={c.label} delay={i * 0.1}>
-                {c.copy ? (
-                  <button onClick={copyDiscord} className="block w-full text-left h-full">
-                    {inner}
-                  </button>
-                ) : (
-                  <a
-                    href={c.href}
-                    target={c.external ? '_blank' : undefined}
-                    rel={c.external ? 'noopener noreferrer' : undefined}
-                    className="block h-full"
-                  >
-                    {inner}
-                  </a>
-                )}
+              <Reveal key={c.label} delay={i * 0.1} className={colSpanClass}>
+                <a
+                  href={c.href}
+                  target={c.external ? '_blank' : undefined}
+                  rel={c.external ? 'noopener noreferrer' : undefined}
+                  className="block h-full"
+                >
+                  {inner}
+                </a>
               </Reveal>
             );
           })}
         </div>
-      </div>
 
-      {/* Copied Notification Toast */}
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-12 left-1/2 z-50 -translate-x-1/2"
-          >
-            <div className="flex items-center gap-3 rounded-2xl border border-brand/50 bg-ink-200/90 backdrop-blur-xl px-6 py-4 shadow-2xl">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#5865F2] shadow-lg">
-                <Check className="h-5 w-5 text-white" />
-              </span>
-              <span className="text-base font-semibold text-white">
-                Discord username copied to clipboard
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </section>
   );
 }
