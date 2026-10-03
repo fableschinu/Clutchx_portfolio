@@ -70,14 +70,14 @@ export function Testimonials(): JSX.Element {
           WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
         }}
       >
-        {/* Column 1: Moves Up */}
-        <MarqueeColumn items={col1} direction="up" duration={32} reduce={reduce} />
+        {/* Column 1: Moves Up (Duration increased to 60 for slower speed) */}
+        <MarqueeColumn items={col1} direction="up" duration={60} reduce={reduce} />
 
-        {/* Column 2: Moves Down */}
-        <MarqueeColumn items={col2} direction="down" duration={38} reduce={reduce} />
+        {/* Column 2: Moves Down (Duration increased to 70 for slower speed) */}
+        <MarqueeColumn items={col2} direction="down" duration={70} reduce={reduce} />
 
-        {/* Column 3: Moves Up */}
-        <MarqueeColumn items={col3} direction="up" duration={35} reduce={reduce} />
+        {/* Column 3: Moves Up (Duration increased to 65 for slower speed) */}
+        <MarqueeColumn items={col3} direction="up" duration={65} reduce={reduce} />
       </div>
     </section>
   );
