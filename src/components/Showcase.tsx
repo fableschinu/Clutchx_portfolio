@@ -18,7 +18,7 @@ const thumbnails = [
   '/thumbnails/kailash podcast.png',
   '/thumbnails/krshn podcast.png',
   '/thumbnails/onimusha 2 v2.png',
-  '/thumbnails/PMC WATCHPARTY d3.png',
+  '/thumbnails/granny hot air balloon.png',
   '/thumbnails/the cjp stroke.png',
   '/thumbnails/wardogs3.png',
   '/thumbnails/epstien doc thumb.jpg',
