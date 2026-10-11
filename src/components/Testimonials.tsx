@@ -38,11 +38,19 @@ const testimonialsData: Testimonial[] = [
     content: 'The thumbnail looks amazing! The colors, lighting, and framing fit the podcast’s vibe perfectly. It is clean, punchy, and instantly grabs attention. Really solid effort on this one great job.',
     avatar: '/testimonials/TRS.jpg',
   },
+  {
+    id: '5',
+    name: 'ThinByteGamer',
+    role: 'Gaming Creator',
+    content: 'awesome thumbnail! worth every money . Looks clean and scary at the same time , will recommend him for sure.',
+    avatar: '/testimonials/Screenshot 2026-10-11 193844.png',
+  }
 ];
 
-const col1 = [testimonialsData[0], testimonialsData[1], testimonialsData[2]];
-const col2 = [testimonialsData[3], testimonialsData[0], testimonialsData[1]];
-const col3 = [testimonialsData[2], testimonialsData[3], testimonialsData[0]];
+// Distributed the 5 testimonials across the 3 columns for a balanced look
+const col1 = [testimonialsData[0], testimonialsData[3], testimonialsData[1]];
+const col2 = [testimonialsData[4], testimonialsData[1], testimonialsData[2]];
+const col3 = [testimonialsData[2], testimonialsData[0], testimonialsData[4]];
 
 export function Testimonials(): JSX.Element {
   const reduce = useReducedMotion();
