@@ -7,7 +7,7 @@ const thumbnails = [
   '/thumbnails/APEX 4.png',
   '/thumbnails/skhwarrior subnautica.jpg',
   '/thumbnails/why did they flee v2.png',
-  '/thumbnails/ayesha truth.jpg',
+  '/thumbnails/devour.png',
   '/thumbnails/black flag 3.png',
   '/thumbnails/blood of dawnwalker v2.png',
   '/thumbnails/eft 2.png',
