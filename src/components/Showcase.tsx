@@ -22,7 +22,7 @@ const thumbnails = [
   '/thumbnails/the cjp stroke.png',
   '/thumbnails/wardogs3.png',
   '/thumbnails/epstien doc thumb.jpg',
-  '/thumbnails/arpit sharma tweet.jpg',
+  '/thumbnails/nokia documentry.png',
   '/thumbnails/wolverine.png',
 ];
 
