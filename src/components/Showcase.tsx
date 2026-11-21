@@ -12,7 +12,7 @@ const thumbnails = [
   '/thumbnails/poppy playtime.png',
   '/thumbnails/eft 2.png',
   '/thumbnails/wolverine 2.png',
-  '/thumbnails/GTA VI (raman).png',
+  '/thumbnails/gta live 1.png',
   '/thumbnails/spiderman 2.png',
   '/thumbnails/granny chp2.png',
   '/thumbnails/kailash podcast.png',
